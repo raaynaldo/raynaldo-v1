@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -14,14 +14,33 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+} */
+
+h1 {
+  @apply text-3xl font-bold md:text-5xl;
+}
+
+h2 {
+  @apply text-2xl font-bold md:text-4xl;
+}
+
+h3 {
+  @apply text-xl font-bold md:text-3xl;
+}
+
+h4 {
+  @apply text-lg font-bold;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply text-sm md:text-base;
+}
+
+.layout {
+  /* 750px */
+  /* max-width: 43.75rem; */
+
+  /* 1100px */
+  max-width: 68.75rem;
+  @apply w-11/12 mx-auto;
 }
