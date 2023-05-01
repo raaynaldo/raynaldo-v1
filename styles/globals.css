@@ -33,6 +33,10 @@
     src: url('/fonts/nunito-italic-var.woff2') format('woff2');
   }
 
+  ::selection {
+    background: #50d9d9;
+  }
+
   h1 {
     @apply text-3xl font-bold font-primary md:text-5xl;
   }
@@ -64,5 +68,9 @@
 
   .h-screen-minus-div {
     height: calc(100vh - 5rem);
+  }
+
+  .hover-primary {
+    @apply transition duration-150 ease-linear hover:text-primary-500;
   }
 }
