@@ -9,6 +9,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-15deg)' },
+          '50%': { transform: 'rotate(20deg)' },
+        },
+      },
+      animation: {
+        wiggle: 'wiggle 2s ease-in-out infinite',
+      },
       fontFamily: {
         primary: ['Nunito', ...defaultTheme.fontFamily.sans],
       },

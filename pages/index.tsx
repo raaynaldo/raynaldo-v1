@@ -19,7 +19,8 @@ export default function Home() {
         <section id='home' className='bg-white'>
           <div className='flex flex-col items-center justify-center h-screen-minus-div layout'>
             <h2 className='text-2xl sm:text-4xl 2xl:text-5xl'>
-              👋 Hello! My name is
+              <div className='inline-block animate-wiggle'>👋</div> Hello! My
+              name is
             </h2>
             <h1
               className={clsx(
@@ -40,16 +41,6 @@ export default function Home() {
             </p>
             <div className='flex gap-2 mt-2'>
               <a
-                href='https://dev.to/raaynaldo'
-                className='cursor-ne-resize'
-                target='_blank'
-              >
-                <FaDev
-                  size={35}
-                  className='transition duration-150 ease-linear hover:text-primary-500'
-                />
-              </a>
-              <a
                 href='https://github.com/raaynaldo'
                 className='cursor-ne-resize'
                 target='_blank'
@@ -65,6 +56,16 @@ export default function Home() {
                 target='_blank'
               >
                 <FaLinkedin
+                  size={35}
+                  className='transition duration-150 ease-linear hover:text-primary-500'
+                />
+              </a>
+              <a
+                href='https://dev.to/raaynaldo'
+                className='cursor-ne-resize'
+                target='_blank'
+              >
+                <FaDev
                   size={35}
                   className='transition duration-150 ease-linear hover:text-primary-500'
                 />
