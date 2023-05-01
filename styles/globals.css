@@ -16,35 +16,53 @@
   }
 } */
 
-h1 {
-  @apply text-3xl font-bold md:text-5xl;
-}
+@layer base {
+  @font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: optional;
+    src: url('/fonts/nunito-var.woff2') format('woff2');
+  }
 
-h2 {
-  @apply text-2xl font-bold md:text-4xl;
-}
+  @font-face {
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: optional;
+    src: url('/fonts/nunito-italic-var.woff2') format('woff2');
+  }
 
-h3 {
-  @apply text-xl font-bold md:text-3xl;
-}
+  h1 {
+    @apply text-3xl font-bold font-primary md:text-5xl;
+  }
 
-h4 {
-  @apply text-lg font-bold;
-}
+  h2 {
+    @apply text-2xl font-bold font-primary md:text-4xl;
+  }
 
-body {
-  @apply text-sm md:text-base;
-}
+  h3 {
+    @apply text-xl font-bold font-primary md:text-3xl;
+  }
 
-.layout {
-  /* 750px */
-  /* max-width: 43.75rem; */
+  h4 {
+    @apply text-lg font-bold font-primary;
+  }
 
-  /* 1100px */
-  max-width: 68.75rem;
-  @apply w-11/12 mx-auto;
-}
+  body {
+    @apply text-sm text-black font-primary md:text-base;
+  }
 
-.h-screen-minus-div {
-  height: calc(100vh - 5rem);
+  .layout {
+    /* 750px */
+    /* max-width: 43.75rem; */
+
+    /* 1100px */
+    max-width: 68.75rem;
+    @apply w-11/12 mx-auto;
+  }
+
+  .h-screen-minus-div {
+    height: calc(100vh - 5rem);
+  }
 }
