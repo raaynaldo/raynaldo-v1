@@ -4,7 +4,7 @@ import { FaDev, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 export default function Home() {
   return (
     <>
-      <header className='sticky top-0 bg-white/50 backdrop-blur-md'>
+      <header className='sticky top-0 z-10 bg-white/50 backdrop-blur-md'>
         <nav className='flex justify-center layout'>
           <ul className='flex items-center justify-between w-3/4 h-20 sm:w-1/2'>
             <li>Home</li>
