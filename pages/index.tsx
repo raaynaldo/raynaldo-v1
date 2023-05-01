@@ -34,8 +34,9 @@ export default function Home() {
             <p
               className={clsx('text-center sm:w-3/5', 'sm:text-lg 2xl:text-xl')}
             >
-              A passionate and skilled full-stack web developer building
-              beautiful websites with love and a commitment to clean code.
+              A passionate about building beautiful websites with love, I am a
+              skilled full-stack web developer dedicated to crafting clean and
+              efficient code.
             </p>
             <div className='flex gap-2 mt-2'>
               <a
