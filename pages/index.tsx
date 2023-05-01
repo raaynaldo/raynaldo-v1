@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { FaDev, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
+import { BsChevronDoubleDown } from 'react-icons/bs';
 
 export default function Home() {
   return (
@@ -71,6 +72,10 @@ export default function Home() {
                 />
               </a>
             </div>
+
+            <p className='absolute text-4xl text-primary bottom-10 animate-bounce'>
+              <BsChevronDoubleDown />
+            </p>
           </div>
         </section>
 
