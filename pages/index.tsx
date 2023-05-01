@@ -3,6 +3,17 @@ import Image from 'next/image';
 import profilePic from '@/public/img/me.jpg';
 import { FaDev, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 import { BsChevronDoubleDown } from 'react-icons/bs';
+import {
+  SiTypescript,
+  SiJavascript,
+  SiServerless,
+  SiNodedotjs,
+  SiReact,
+  SiRedux,
+  SiTailwindcss,
+  SiAmazondynamodb,
+  SiPostgresql,
+} from 'react-icons/si';
 import Accent from '@/components/Accent';
 
 export default function Home() {
@@ -11,10 +22,18 @@ export default function Home() {
       <header className='sticky top-0 z-10 bg-white/50 backdrop-blur-md'>
         <nav className='flex justify-center layout'>
           <ul className='flex items-center justify-between w-3/4 h-20 sm:w-1/2'>
-            <li>Home</li>
-            <li>Experience</li>
-            <li>Blog</li>
-            <li>About</li>
+            <li className='hover-primary'>
+              <a href='#home'>Home</a>
+            </li>
+            <li className='hover-primary'>
+              <a href='#about'>About</a>
+            </li>
+            <li className='hover-primary'>
+              <a href='#home'>Experience</a>
+            </li>
+            <li className='hover-primary'>
+              <a href='#home'>Blog</a>
+            </li>
           </ul>
         </nav>
       </header>
@@ -47,30 +66,21 @@ export default function Home() {
                 className='cursor-ne-resize'
                 target='_blank'
               >
-                <FaGithubSquare
-                  size={35}
-                  className='transition duration-150 ease-linear hover:text-primary-500'
-                />
+                <FaGithubSquare size={35} className='hover-primary' />
               </a>
               <a
                 href='https://www.linkedin.com/in/teofilusraynaldo/'
                 className='cursor-ne-resize'
                 target='_blank'
               >
-                <FaLinkedin
-                  size={35}
-                  className='transition duration-150 ease-linear hover:text-primary-500'
-                />
+                <FaLinkedin size={35} className='hover-primary' />
               </a>
               <a
                 href='https://dev.to/raaynaldo'
                 className='cursor-ne-resize'
                 target='_blank'
               >
-                <FaDev
-                  size={35}
-                  className='transition duration-150 ease-linear hover:text-primary-500'
-                />
+                <FaDev size={35} className='hover-primary' />
               </a>
             </div>
 
@@ -78,14 +88,16 @@ export default function Home() {
               className='absolute text-4xl cursor-pointer text-primary bottom-10 animate-bounce'
               href='#about'
             >
-              <BsChevronDoubleDown className=' hover:text-primary-500' />
+              <BsChevronDoubleDown className='hover-primary' />
             </a>
           </div>
         </section>
 
         <section id='about' className='bg-white'>
           <div className='flex flex-col justify-center h-screen layout'>
-            <h1 className='text-center sm:text-left'>About Me</h1>
+            <h1 className='text-center sm:text-left'>
+              <span className='border-b-2 border-primary-500'>About Me</span>
+            </h1>
             <div className='flex flex-col items-center gap-5 mt-5 sm:items-start sm:flex-row-reverse'>
               <Image
                 src={profilePic}
@@ -113,7 +125,20 @@ export default function Home() {
                   user-friendly applications.
                 </p>
 
-                <h3 className='border-b-2 border-primary-500'>Tech Stacks</h3>
+                <h3>
+                  <span className='border-b-2 border-primary-500'>
+                    Tech Stack 🧑‍💻
+                  </span>
+                </h3>
+                <div className='flex gap-4'>
+                  <SiJavascript size={30} className='hover-primary' />
+                  <SiTypescript size={30} className='hover-primary' />
+                  <SiServerless size={30} className='hover-primary' />
+                  <SiNodedotjs size={30} className='hover-primary' />
+                  <SiReact size={30} className='hover-primary' />
+                  <SiRedux size={30} className='hover-primary' />
+                  <SiTailwindcss size={30} className='hover-primary' />
+                </div>
               </div>
             </div>
           </div>
