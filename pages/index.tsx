@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import profilePic from '@/public/img/me.jpg';
+import logoTransaparent from '@/public/img/logo-transparent.png';
 import { FaDev, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 import { BsChevronDoubleDown } from 'react-icons/bs';
 import {
@@ -38,10 +39,11 @@ export default function Home() {
         </nav>
       </header>
 
-      <main>
-        <section id='home' className='bg-white'>
+      <main className='bg-white'>
+        <section id='home'>
           <div className='flex flex-col items-center justify-center h-screen-minus-div min-h-max layout'>
-            <h2 className='text-2xl sm:text-4xl 2xl:text-5xl'>
+            <Image src={logoTransaparent} alt='logo' className='w-6 sm:w-9' />
+            <h2 className='mt-2 text-2xl sm:mt-3 sm:text-4xl 2xl:text-5xl'>
               <div className='inline-block animate-wiggle'>👋</div> Hello! My
               name is
             </h2>
@@ -93,18 +95,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section id='about' className='bg-white'>
+        <section id='about'>
           <div className='flex flex-col justify-center h-screen layout'>
-            <h1 className='text-center sm:text-left'>
+            <h1 className='text-center md:text-left'>
               <span className='border-b-2 border-primary-500'>About Me</span>
             </h1>
-            <div className='flex flex-col items-center gap-5 mt-5 sm:items-start sm:flex-row-reverse'>
-              <Image
-                src={profilePic}
-                alt='Picture of the author'
-                className='w-72 sm:w-80 sm:pl-5'
-              />
-              <div className='flex flex-col gap-4 text-justify sm:mt-0'>
+            <div className='flex flex-col items-center gap-5 mt-5 md:items-start md:flex-row-reverse'>
+              <div
+                className={clsx('overflow-hidden rounded-md', 'w-1/2 md:w-3/4')}
+              >
+                <Image src={profilePic} alt='Picture of the author' />
+              </div>
+              <div className='flex flex-col gap-4 text-justify md:mt-0'>
                 <p>
                   My name is <Accent>Ray</Accent>, and I work as a software
                   engineer with five years of experience. I started my career
@@ -144,7 +146,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section id='blog'>
           <div className='h-96'>Blog</div>
         </section>
       </main>

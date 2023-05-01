@@ -63,7 +63,7 @@
 
     /* 1100px */
     max-width: 68.75rem;
-    @apply w-11/12 mx-auto;
+    @apply w-10/12 mx-auto;
   }
 
   .h-screen-minus-div {
