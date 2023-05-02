@@ -8,7 +8,7 @@ export default async function handler(
 ) {
   if (req.method === 'GET') {
     const articles = await getArticles();
-    res.status(200).json({ data: articles });
+    res.status(200).json(articles);
   } else {
     res.status(404).json({ message: 'not found' });
   }

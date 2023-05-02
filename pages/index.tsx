@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import axios from 'axios';
 import Image from 'next/image';
 import profilePic from '@/public/img/me.jpg';
 import logoTransaparent from '@/public/img/logo-transparent.png';
@@ -16,9 +17,23 @@ import {
   SiAmazondynamodb,
   SiPostgresql,
 } from 'react-icons/si';
+import useSWR from 'swr';
 import Accent from '@/components/Accent';
+import { format } from 'date-fns';
+
+function fetcher(url: string) {
+  return axios.get(url).then((res) => res.data);
+}
 
 export default function Home() {
+  const { data = [], error, isLoading } = useSWR('/api/blogs/', fetcher);
+
+  const featuredPosts = data
+    .sort((a: any, b: any) => b.page_views_count - a.page_views_count)
+    .slice(0, 6);
+
+  console.log(featuredPosts);
+
   return (
     <>
       <header className='sticky top-0 z-10 bg-white/50 backdrop-blur-md'>
@@ -94,7 +109,7 @@ export default function Home() {
         </section>
 
         <section id='about'>
-          <div className='flex flex-col pt-20 layout'>
+          <div className='flex flex-col pt-20 mb-20 layout'>
             <h1 className='text-center md:text-left'>
               <span className='border-b-2 border-primary-500'>About Me</span>
             </h1>
@@ -144,35 +159,49 @@ export default function Home() {
           </div>
         </section>
 
-        <section id='blog' className='pt-20'>
-          <div className='flex flex-col h-screen layout'>
+        <section id='blog' className='pt-20 pb-20'>
+          <div className='flex flex-col justify-center h-full layout'>
             <h1>
               <span className='border-b-2 border-primary-500'>
                 Featured Posts
               </span>
             </h1>
 
-            <ul className='grid grid-rows-2 gap-3 mt-9 sm:grid-cols-2 md:grid-cols-3'>
-              <li className='p-3 border-2 border-black rounded-md'>
-                <h4>📚 RTK Query Tutorial (CRUD)</h4>
-                <p className='flex items-center gap-2 mt-1'>
-                  <span className='flex items-center gap-1'>
-                    <BiTimeFive />
-                    <Accent>9 min read</Accent>
-                  </span>
+            <div className='grid grid-rows-2 gap-3 mt-9 sm:grid-cols-2 md:grid-cols-3'>
+              {featuredPosts.map((post: any) => (
+                <a
+                  href={post.url}
+                  target='blank'
+                  className='block p-2 border-2 border-black rounded-md cursor-ne-resize'
+                  key={post.id}
+                >
+                  <h4>{post.title}</h4>
+                  <p className='flex items-center gap-2 mt-1'>
+                    <span className='flex items-center gap-1'>
+                      <BiTimeFive />
+                      {post.reading_time_minutes} min read
+                    </span>
 
-                  <span className='flex items-center gap-1'>
-                    <BsEye />
-                    <Accent>1,000 views</Accent>
-                  </span>
-                </p>
-                <p className='mt-2 font-semibold'>May 3, 2023</p>
-                <p className='italic'>#react #redux #javascript #tutorial</p>
-              </li>
-            </ul>
+                    <span className='flex items-center gap-1'>
+                      <BsEye />
+                      <Accent>
+                        {post.page_views_count.toLocaleString('en-US')} views
+                      </Accent>
+                    </span>
+                  </p>
+                  <p className='mt-4 font-bold'>
+                    {format(new Date(post.published_at), 'MMM dd, yyyy')}
+                  </p>
+                  <p className='italic'>
+                    {post.tag_list.map((tag: string) => `#${tag} `)}
+                  </p>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
       </main>
+      <footer />
     </>
   );
 }
