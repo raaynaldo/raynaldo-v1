@@ -26,7 +26,7 @@ function fetcher(url: string) {
 }
 
 export default function Home() {
-  const { data = [], error, isLoading } = useSWR('/api/blogs/', fetcher);
+  const { data = [] } = useSWR('/api/blogs/', fetcher);
 
   const featuredPosts = data
     .sort((a: any, b: any) => b.page_views_count - a.page_views_count)
@@ -43,7 +43,7 @@ export default function Home() {
               <a href='#about'>About</a>
             </li>
             <li className='hover-primary'>
-              <a href='#home'>Experience</a>
+              <a href='#experience'>Experience</a>
             </li>
             <li className='hover-primary'>
               <a href='#blog'>Blog</a>
@@ -153,15 +153,25 @@ export default function Home() {
                   <SiReact size={30} className='hover-primary' />
                   <SiRedux size={30} className='hover-primary' />
                   <SiTailwindcss size={30} className='hover-primary' />
+                  <SiAmazondynamodb size={30} className='hover-primary' />
+                  <SiPostgresql size={30} className='hover-primary' />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+        <section id='experience' className='pt-20 pb-20'>
+          <div className='layout'>
+            <h1 className='text-center md:text-left'>
+              <span className='border-b-2 border-primary-500'>Experience</span>
+            </h1>
+          </div>
+        </section>
+
         <section id='blog' className='pt-20 pb-20'>
           <div className='flex flex-col justify-center h-full layout'>
-            <h1>
+            <h1 className='text-center md:text-left'>
               <span className='border-b-2 border-primary-500'>
                 Featured Posts
               </span>
