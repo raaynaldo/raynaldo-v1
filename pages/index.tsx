@@ -18,7 +18,7 @@ import {
   SiPostgresql,
 } from 'react-icons/si';
 import useSWR from 'swr';
-import Accent from '@/src/components/Accent';
+import Accent from '@/components/Accent';
 import { format } from 'date-fns';
 
 function fetcher(url: string) {
