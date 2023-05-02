@@ -18,7 +18,7 @@ import {
   SiPostgresql,
 } from 'react-icons/si';
 import useSWR from 'swr';
-import Accent from '@/components/Accent';
+import Accent from '@/src/components/Accent';
 import { format } from 'date-fns';
 
 function fetcher(url: string) {
@@ -158,14 +158,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section id='experience' className='pt-20 pb-20'>
-          <div className='layout'>
-            <h1 className='text-center md:text-left'>
-              <span className='border-b-2 border-primary-500'>Experience</span>
-            </h1>
           </div>
         </section>
 
