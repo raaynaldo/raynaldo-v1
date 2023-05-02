@@ -3,7 +3,8 @@ import Image from 'next/image';
 import profilePic from '@/public/img/me.jpg';
 import logoTransaparent from '@/public/img/logo-transparent.png';
 import { FaDev, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
-import { BsChevronDoubleDown } from 'react-icons/bs';
+import { BiTimeFive } from 'react-icons/bi';
+import { BsChevronDoubleDown, BsEye } from 'react-icons/bs';
 import {
   SiTypescript,
   SiJavascript,
@@ -24,16 +25,13 @@ export default function Home() {
         <nav className='flex justify-center layout'>
           <ul className='flex items-center justify-between w-3/4 h-20 sm:w-1/2'>
             <li className='hover-primary'>
-              <a href='#home'>Home</a>
-            </li>
-            <li className='hover-primary'>
               <a href='#about'>About</a>
             </li>
             <li className='hover-primary'>
               <a href='#home'>Experience</a>
             </li>
             <li className='hover-primary'>
-              <a href='#home'>Blog</a>
+              <a href='#blog'>Blog</a>
             </li>
           </ul>
         </nav>
@@ -96,7 +94,7 @@ export default function Home() {
         </section>
 
         <section id='about'>
-          <div className='flex flex-col justify-center h-screen layout'>
+          <div className='flex flex-col pt-20 layout'>
             <h1 className='text-center md:text-left'>
               <span className='border-b-2 border-primary-500'>About Me</span>
             </h1>
@@ -146,8 +144,33 @@ export default function Home() {
           </div>
         </section>
 
-        <section id='blog'>
-          <div className='h-96'>Blog</div>
+        <section id='blog' className='pt-20'>
+          <div className='flex flex-col h-screen layout'>
+            <h1>
+              <span className='border-b-2 border-primary-500'>
+                Featured Posts
+              </span>
+            </h1>
+
+            <ul className='grid grid-rows-2 gap-3 mt-9 sm:grid-cols-2 md:grid-cols-3'>
+              <li className='p-3 border-2 border-black rounded-md'>
+                <h4>📚 RTK Query Tutorial (CRUD)</h4>
+                <p className='flex items-center gap-2 mt-1'>
+                  <span className='flex items-center gap-1'>
+                    <BiTimeFive />
+                    <Accent>9 min read</Accent>
+                  </span>
+
+                  <span className='flex items-center gap-1'>
+                    <BsEye />
+                    <Accent>1,000 views</Accent>
+                  </span>
+                </p>
+                <p className='mt-2 font-semibold'>May 3, 2023</p>
+                <p className='italic'>#react #redux #javascript #tutorial</p>
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
     </>
