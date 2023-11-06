@@ -165,9 +165,9 @@ export default function HomePage() {
               {experiences.map((experience: Experience) => (
                 <li
                   key={experience.id}
-                  className='relative px-5 py-3 border-l-2 border-primary-300'
+                  className='relative px-5 py-3.5 border-l-2 border-primary-300'
                 >
-                  <span className='absolute w-2.5 h-2.5 rounded-full -left-1.5 bg-primary-300 top-4'>
+                  <span className='absolute w-2.5 h-2.5 rounded-full -left-1.5 bg-primary-300 top-5'>
                     &nbsp;
                   </span>
                   <div>{experience.date}</div>
