@@ -165,7 +165,6 @@ export default function HomePage() {
                   </span>
                   <div>{experience.date}</div>
                   <h4>{experience.companyName}</h4>
-                  <p>{experience.description}</p>
                   {experience.details && (
                     <ul className='mt-2 ml-4 list-disc'>
                       {experience.details.map((detail: string) => (
