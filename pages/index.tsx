@@ -21,6 +21,8 @@ import useSWR from 'swr';
 import Accent from '@/components/Accent';
 import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
+import { Experience, experiences } from '@/data/experience';
+import exp from 'constants';
 
 function fetcher(url: string) {
   return axios.get(url).then((res) => res.data);
@@ -153,22 +155,24 @@ export default function HomePage() {
             </h1>
 
             <ul className='mt-10'>
-              {['VitusVet', 'NTT', 'MII'].map((company: string) => (
+              {experiences.map((experience: Experience) => (
                 <li
-                  key={company}
+                  key={experience.id}
                   className='relative px-5 py-3 border-l-2 border-primary-300'
                 >
                   <span className='absolute w-2.5 h-2.5 rounded-full -left-1.5 bg-primary-300 top-4'>
                     &nbsp;
                   </span>
-                  <div>Oct 2020 - Dec 2023</div>
-                  <h4>{company}</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ex, libero reprehenderit earum ad, id quod perferendis sed
-                    facere iste porro, accusamus repellendus molestias
-                    reiciendis possimus neque aspernatur maiores sit unde!
-                  </p>
+                  <div>{experience.date}</div>
+                  <h4>{experience.companyName}</h4>
+                  <p>{experience.description}</p>
+                  {experience.details && (
+                    <ul className='mt-2 ml-4 list-disc'>
+                      {experience.details.map((detail: string) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
