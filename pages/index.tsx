@@ -154,24 +154,25 @@ export default function HomePage() {
               <span className='border-b-2 border-primary-500'>Experience</span>
             </h1>
 
-            <ul className='py-3 mt-10 border-l-2 border-primary-300'>
+            <ul className='mt-10'>
               {experiences.map((experience: Experience) => (
-                <li key={experience.id} className='relative px-2'>
-                  <div className='px-3 py-5 transition duration-700 hover:bg-primary-100 hover:rounded-lg'>
-                    <span className='absolute w-2.5 h-2.5 rounded-full -left-1.5 bg-primary-300 top-4'>
-                      &nbsp;
-                    </span>
-                    <div>{experience.date}</div>
-                    <h4>{experience.companyName}</h4>
-                    {/* <p>{experience.description}</p> */}
-                    {experience.details && (
-                      <ul className='mt-2 ml-4 list-disc'>
-                        {experience.details.map((detail: string) => (
-                          <li key={detail}>{detail}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
+                <li
+                  key={experience.id}
+                  className='relative px-5 py-3 border-l-2 border-primary-300'
+                >
+                  <span className='absolute w-2.5 h-2.5 rounded-full -left-1.5 bg-primary-300 top-4'>
+                    &nbsp;
+                  </span>
+                  <div>{experience.date}</div>
+                  <h4>{experience.companyName}</h4>
+                  <p>{experience.description}</p>
+                  {experience.details && (
+                    <ul className='mt-2 ml-4 list-disc'>
+                      {experience.details.map((detail: string) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
