@@ -146,6 +146,35 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section id='experience'>
+          <div className='pt-20 mb-20 layout'>
+            <h1 className='text-center md:text-left'>
+              <span className='border-b-2 border-primary-500'>Experience</span>
+            </h1>
+
+            <ul className='mt-10'>
+              {['VitusVet', 'NTT', 'MII'].map((company: string) => (
+                <li
+                  key={company}
+                  className='relative px-5 py-3 border-l-2 border-primary-300'
+                >
+                  <span className='absolute w-2.5 h-2.5 rounded-full -left-1.5 bg-primary-300 top-4'>
+                    &nbsp;
+                  </span>
+                  <div>Oct 2020 - Dec 2023</div>
+                  <h4>{company}</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ex, libero reprehenderit earum ad, id quod perferendis sed
+                    facere iste porro, accusamus repellendus molestias
+                    reiciendis possimus neque aspernatur maiores sit unde!
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section id='blog' className='pt-20 pb-20'>
           <div className='flex flex-col justify-center h-full layout'>
             <h1 className='text-center md:text-left'>
