@@ -16,13 +16,13 @@ import {
   SiTailwindcss,
   SiAmazondynamodb,
   SiPostgresql,
+  SiLeetcode,
 } from 'react-icons/si';
 import useSWR from 'swr';
 import Accent from '@/components/Accent';
 import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
 import { Experience, experiences } from '@/data/experience';
-import exp from 'constants';
 
 function fetcher(url: string) {
   return axios.get(url).then((res) => res.data);
@@ -83,6 +83,13 @@ export default function HomePage() {
                 target='_blank'
               >
                 <FaDev size={35} className='hover-primary' />
+              </a>
+              <a
+                href='https://leetcode.com/raaynaldo/'
+                className='cursor-ne-resize'
+                target='_blank'
+              >
+                <SiLeetcode size={35} className='hover-primary' />
               </a>
             </div>
 
