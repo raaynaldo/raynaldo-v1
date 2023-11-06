@@ -20,37 +20,22 @@ import {
 import useSWR from 'swr';
 import Accent from '@/components/Accent';
 import { format } from 'date-fns';
+import Header from '@/components/layout/Header';
 
 function fetcher(url: string) {
   return axios.get(url).then((res) => res.data);
 }
 
-export default function Home() {
+export default function HomePage() {
   const { data = [] } = useSWR('/api/blogs/', fetcher);
 
   const featuredPosts = data
     .sort((a: any, b: any) => b.page_views_count - a.page_views_count)
     .slice(0, 6);
 
-  console.log(featuredPosts);
-
   return (
     <>
-      <header className='sticky top-0 z-10 bg-white/50 backdrop-blur-md'>
-        <nav className='flex justify-center layout'>
-          <ul className='flex items-center justify-between w-3/4 h-20 sm:w-1/2'>
-            <li className='hover-primary'>
-              <a href='#about'>About</a>
-            </li>
-            <li className='hover-primary'>
-              <a href='#experience'>Experience</a>
-            </li>
-            <li className='hover-primary'>
-              <a href='#blog'>Blog</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
       <main className='bg-white'>
         <section id='home'>
