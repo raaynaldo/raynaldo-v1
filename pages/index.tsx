@@ -23,6 +23,7 @@ import Accent from '@/components/Accent';
 import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
 import { Experience, experiences } from '@/data/experience';
+import Footer from '@/components/layout/Footer';
 
 function fetcher(url: string) {
   return axios.get(url).then((res) => res.data);
@@ -227,7 +228,8 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      <footer />
+
+      <Footer />
     </>
   );
 }
