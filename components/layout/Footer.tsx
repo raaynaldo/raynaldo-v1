@@ -8,7 +8,7 @@ export default function Footer() {
         <p>Contact me</p>
         <div className='flex gap-2 mt-1 mb-3'>
           <a
-            href='mailto:raaynaldo@gmail.com'
+            href='mailto:me@raynaldosutisna.com'
             className='cursor-ne-resize'
             target='_blank'
           >
