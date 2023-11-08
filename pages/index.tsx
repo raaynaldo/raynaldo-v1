@@ -24,6 +24,7 @@ import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
 import { Experience, experiences } from '@/data/experience';
 import Footer from '@/components/layout/Footer';
+import Seo from '@/components/Seo';
 
 function fetcher(url: string) {
   return axios.get(url).then((res) => res.data);
@@ -38,6 +39,7 @@ export default function HomePage() {
 
   return (
     <>
+      <Seo />
       <Header />
 
       <main className='bg-white'>
