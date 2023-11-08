@@ -70,7 +70,7 @@ const favicons: Array<Favicons> = [
   },
   {
     rel: 'manifest',
-    href: '/favicon/site.webmanifest.json',
+    href: '/favicon/site.webmanifest',
   },
   {
     rel: 'mask-icon',
