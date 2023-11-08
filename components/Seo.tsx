@@ -26,11 +26,12 @@ export default function Seo(props: SeoProps) {
       <meta name='robots' content={meta.robots} />
       <meta name='description' content={meta.description} />
 
-      <meta property='og:url' content={meta.url} />
-      <meta property='og:type' content={meta.type} />
+      <meta property='og:title' content={meta.title} />
       <meta property='og:description' content={meta.description} />
-      <meta property='og:site_name' content={meta.siteName} />
+      <meta property='og:type' content={meta.type} />
+      <meta property='og:url' content={meta.url} />
       <meta property='og:image' name='image' content={meta.image} />
+      <meta property='og:site_name' content={meta.siteName} />
 
       {favicons.map((linkProps) => (
         <link key={linkProps.href} {...linkProps} />
