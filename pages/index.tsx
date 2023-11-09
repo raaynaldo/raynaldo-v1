@@ -142,7 +142,7 @@ export default function HomePage() {
                     Tech Stack 🧑‍💻
                   </span>
                 </h3>
-                <div className='flex gap-4'>
+                <div className='flex flex-wrap gap-4'>
                   <SiJavascript size={30} className='hover-primary' />
                   <SiTypescript size={30} className='hover-primary' />
                   <SiServerless size={30} className='hover-primary' />
