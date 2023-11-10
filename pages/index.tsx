@@ -38,8 +38,6 @@ export default function HomePage() {
     .sort((a: any, b: any) => b.page_views_count - a.page_views_count)
     .slice(0, 6);
 
-  console.log(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
-
   return (
     <>
       <Script
