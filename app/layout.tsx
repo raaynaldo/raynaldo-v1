@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   other: { ['msapplication-TileColor']: '#da532c' },
 };
 
-export const viewpor: Viewport = {
+export const viewport: Viewport = {
   themeColor: '#ffffff',
 };
 
