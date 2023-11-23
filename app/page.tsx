@@ -1,3 +1,4 @@
+'use client';
 import clsx from 'clsx';
 import Image from 'next/image';
 import profilePic from '@/public/img/me.jpg';
@@ -22,22 +23,18 @@ import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
 import { Experience, experiences } from '@/data/experience';
 import Footer from '@/components/layout/Footer';
+import useSWR from 'swr';
+import axios from 'axios';
 
-async function getData() {
-  const res = await fetch('http://localhost:3000/api/blogs/', {
-    method: 'GET',
-  });
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
+function fetcher(url: string) {
+  return axios.get(url).then((res) => res.data);
 }
 
-export default async function Page() {
-  const { data = [] } = await getData();
+export default function Page() {
+  const { data } = useSWR('/api/blogs/', fetcher);
+  const blogs = data?.data || [];
 
-  const featuredPosts = data
+  const featuredPosts = blogs
     .sort((a: any, b: any) => b.page_views_count - a.page_views_count)
     .slice(0, 6);
 
