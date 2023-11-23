@@ -11,6 +11,5 @@ devtoAxios.interceptors.request.use((config) => {
 
 export async function getArticles() {
   const result = await devtoAxios.get('articles/me');
-  console.log(result);
   return result.data;
 }
