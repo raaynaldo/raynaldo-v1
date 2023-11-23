@@ -24,8 +24,6 @@ import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
 import { Experience, experiences } from '@/data/experience';
 import Footer from '@/components/layout/Footer';
-import Seo from '@/components/Seo';
-import Script from 'next/script';
 
 function fetcher(url: string) {
   return axios.get(url).then((res) => res.data);
@@ -40,19 +38,6 @@ export default function HomePage() {
 
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-      />
-      <Script id='google-analytics'>
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
-        `}
-      </Script>
-
       <Header />
 
       <main className='bg-white'>

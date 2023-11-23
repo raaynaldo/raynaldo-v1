@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import '@/styles/globals.css';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const defaultMeta = {
   title: 'Raynaldo Sutisna',
@@ -75,6 +76,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>{children}</body>
+      <GoogleAnalytics />
     </html>
   );
 }
