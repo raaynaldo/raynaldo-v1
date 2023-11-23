@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import axios from 'axios';
 import Image from 'next/image';
 import profilePic from '@/public/img/me.jpg';
 import logoTransaparent from '@/public/img/logo-transparent.png';
