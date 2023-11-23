@@ -18,23 +18,29 @@ import {
   SiPostgresql,
   SiLeetcode,
 } from 'react-icons/si';
-import useSWR from 'swr';
 import Accent from '@/components/Accent';
 import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
 import { Experience, experiences } from '@/data/experience';
 import Footer from '@/components/layout/Footer';
 
-function fetcher(url: string) {
-  return axios.get(url).then((res) => res.data);
+async function getData() {
+  const res = await fetch('http://localhost:3000/api/blogs/', {
+    method: 'GET',
+  });
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
 }
 
-export default function HomePage() {
-  // const { data = [] } = useSWR('/api/blogs/', fetcher);
+export default async function Page() {
+  const { data = [] } = await getData();
 
-  // const featuredPosts = data
-  //   .sort((a: any, b: any) => b.page_views_count - a.page_views_count)
-  //   .slice(0, 6);
+  const featuredPosts = data
+    .sort((a: any, b: any) => b.page_views_count - a.page_views_count)
+    .slice(0, 6);
 
   return (
     <>
@@ -194,7 +200,7 @@ export default function HomePage() {
               </span>
             </h1>
 
-            {/* <div className='grid grid-rows-2 gap-3 mt-9 sm:grid-cols-2 md:grid-cols-3'>
+            <div className='grid grid-rows-2 gap-3 mt-9 sm:grid-cols-2 md:grid-cols-3'>
               {featuredPosts.map((post: any) => (
                 <a
                   href={post.url}
@@ -224,7 +230,7 @@ export default function HomePage() {
                   </p>
                 </a>
               ))}
-            </div> */}
+            </div>
           </div>
         </section>
       </main>
