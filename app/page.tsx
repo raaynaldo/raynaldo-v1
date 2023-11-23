@@ -1,5 +1,5 @@
+'use client';
 import clsx from 'clsx';
-import axios from 'axios';
 import Image from 'next/image';
 import profilePic from '@/public/img/me.jpg';
 import logoTransaparent from '@/public/img/logo-transparent.png';
@@ -18,42 +18,28 @@ import {
   SiPostgresql,
   SiLeetcode,
 } from 'react-icons/si';
-import useSWR from 'swr';
 import Accent from '@/components/Accent';
 import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
 import { Experience, experiences } from '@/data/experience';
 import Footer from '@/components/layout/Footer';
-import Seo from '@/components/Seo';
-import Script from 'next/script';
+import useSWR from 'swr';
+import axios from 'axios';
 
 function fetcher(url: string) {
   return axios.get(url).then((res) => res.data);
 }
 
-export default function HomePage() {
-  const { data = [] } = useSWR('/api/blogs/', fetcher);
+export default function Page() {
+  const { data } = useSWR('/api/blogs/', fetcher);
+  const blogs = data?.data || [];
 
-  const featuredPosts = data
+  const featuredPosts = blogs
     .sort((a: any, b: any) => b.page_views_count - a.page_views_count)
     .slice(0, 6);
 
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-      />
-      <Script id='google-analytics'>
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
-        `}
-      </Script>
-
-      <Seo />
       <Header />
 
       <main className='bg-white'>
