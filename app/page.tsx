@@ -23,15 +23,19 @@ import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
 import { Experience, experiences } from '@/data/experience';
 import Footer from '@/components/layout/Footer';
-import useSWR from 'swr';
 import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 function fetcher(url: string) {
   return axios.get(url).then((res) => res.data);
 }
 
 export default function Page() {
-  const { data } = useSWR('/api/blogs/', fetcher);
+  const { data } = useQuery({
+    queryKey: ['blogs'],
+    queryFn: () => fetcher('/api/blogs/'),
+  });
+
   const blogs = data?.data || [];
 
   const featuredPosts = blogs
