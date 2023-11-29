@@ -5,7 +5,7 @@ const devtoAxios = axios.create({
 });
 
 devtoAxios.interceptors.request.use((config) => {
-  config.headers['api-key'] = 'zqfMzkkNfKyQtwyB7yrX9Szi';
+  config.headers['api-key'] = process.env.DEVTO_API_KEY;
   return config;
 });
 
