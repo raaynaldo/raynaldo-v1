@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getArticles } from '@/lib/devto';
+import { getArticles } from '@/network/lib/devto';
 
 export async function GET() {
   try {

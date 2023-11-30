@@ -23,17 +23,13 @@ import { format } from 'date-fns';
 import Header from '@/components/layout/Header';
 import { Experience, experiences } from '@/data/experience';
 import Footer from '@/components/layout/Footer';
-import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
-
-function fetcher(url: string) {
-  return axios.get(url).then((res) => res.data);
-}
+import { getBlogs } from '@/network/lib/blog';
 
 export default function Page() {
   const { data } = useQuery({
     queryKey: ['blogs'],
-    queryFn: () => fetcher('/api/blogs/'),
+    queryFn: () => getBlogs().then((res) => res.data),
   });
 
   const blogs = data?.data || [];
