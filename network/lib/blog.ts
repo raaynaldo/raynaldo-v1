@@ -1,5 +1,5 @@
-import AppRouterAxios from '@/network/AppRouterAxios';
+import { appRouterAxios } from '@/network/AxiosBuilder';
 
 export function getBlogs() {
-  return AppRouterAxios.get('/api/blogs');
+  return appRouterAxios.get('/api/blogs');
 }
